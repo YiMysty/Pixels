@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{304F3717-7966-2F7C-1D90-05921768769D}</ProjectGuid>
+	<ProjectGuid>{73B6CD97-D7CD-AE31-89D4-F77F8E5DF748}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Manager\GUIManager.cs" />
+     <Compile Include="Assets\Manager\GameManager.cs" />
      <Compile Include="Assets\SampleAssets\2D\Scripts\Camera2DFollow.cs" />
      <Compile Include="Assets\SampleAssets\2D\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\SampleAssets\2D\Scripts\Platformer2DUserControl.cs" />

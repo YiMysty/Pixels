@@ -22,11 +22,29 @@ namespace UnitySampleAssets._2D
         private Transform ceilingCheck; // A position marking where to check for ceilings
         private float ceilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
         private Animator anim; // Reference to the player's animator component.
-
+		private float GameOverY = -10;
 		Transform playerGraphics;
+		private Vector3 groundPosition;
 
-
-        private void Awake()
+		private void Start(){
+			GameManager.GameStart += GameStart;
+			GameManager.GameOver += GameOver;
+		}
+		private void GameStart(){
+			playerGraphics.transform.localPosition.Set(groundPosition.x,groundPosition.y+100f,groundPosition.z);
+			anim.enabled = true;;
+			this.enabled = true;
+			this.renderer.enabled = true;
+			this.rigidbody2D.isKinematic = false;
+			
+		}
+		private void GameOver(){
+			anim.enabled = false;
+			this.enabled = false;
+			this.renderer.enabled = false;
+			this.rigidbody2D.isKinematic = true;
+		}
+		private void Awake()
         {
             // Setting up references.
             groundCheck = transform.Find("GroundCheck");
@@ -44,10 +62,16 @@ namespace UnitySampleAssets._2D
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
             anim.SetBool("Ground", grounded);
-
+			if (grounded) {
+				groundPosition = transform.localPosition;
+			}
             // Set the vertical animation
             anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
-        }
+			float y =  anim.transform.localPosition.y;
+        	if (y < GameOverY) {
+				GameManager.TriggerGameOver ();
+			}
+		}
 
 
         public void Move(float move, bool crouch, bool jump)

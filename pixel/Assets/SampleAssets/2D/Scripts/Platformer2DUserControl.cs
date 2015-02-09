@@ -10,6 +10,18 @@ namespace UnitySampleAssets._2D
         private PlatformerCharacter2D character;
         private bool jump;
 
+		private void Start(){
+			GameManager.GameStart += GameStart;
+			GameManager.GameOver += GameOver;
+			this.enabled = false;
+		}
+		private void GameStart(){
+			this.enabled = true;
+		}
+		private void GameOver(){
+			this.enabled = false;
+		}
+
         private void Awake()
         {
             character = GetComponent<PlatformerCharacter2D>();

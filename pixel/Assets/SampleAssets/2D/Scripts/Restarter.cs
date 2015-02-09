@@ -8,6 +8,6 @@ namespace UnitySampleAssets._2D
         {
             if (other.tag == "Player")
                 Application.LoadLevel(Application.loadedLevelName);
-        }
+		}
     }
 }

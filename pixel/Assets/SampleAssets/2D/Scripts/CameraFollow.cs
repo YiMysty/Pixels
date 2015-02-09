@@ -16,7 +16,18 @@ namespace UnitySampleAssets._2D
 
         private Transform player; // Reference to the player's transform.
 
+		public void Start(){
+			this.enabled = false;
+			GameManager.GameStart += GameStart;
+			GameManager.GameOver += GameOver;
+		}
+		public void GameStart(){
+			this.enabled = true;		
+		}
+		public void GameOver(){
+			this.enabled = false;
 
+		}
         private void Awake()
         {
             // Setting up the reference.

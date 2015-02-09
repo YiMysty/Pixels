@@ -20,11 +20,26 @@ namespace UnitySampleAssets._2D
         // Use this for initialization
         private void Start()
         {
-            lastTargetPosition = target.position;
-            offsetZ = (transform.position - target.position).z;
-            transform.parent = null;
+			GameManager.GameStart += GameStart;
+			GameManager.GameOver += GameOver;
+
+			lastTargetPosition = target.position;
+			offsetZ = (transform.position - target.position).z;
+			transform.parent = null;
+			this.enabled = false;
         }
 
+		private void GameStart(){
+			//Start ();
+			this.enabled = true;
+			lastTargetPosition = target.position;
+			offsetZ = (transform.position - target.position).z;
+			transform.parent = null;
+		}
+
+		private void GameOver(){
+			this.enabled = false;
+		}
         // Update is called once per frame
         private void Update()
         {
@@ -47,7 +62,6 @@ namespace UnitySampleAssets._2D
             Vector3 newPos = Vector3.SmoothDamp(transform.position, aheadTargetPos, ref currentVelocity, damping);
 
             transform.position = newPos;
-
             lastTargetPosition = target.position;
         }
     }

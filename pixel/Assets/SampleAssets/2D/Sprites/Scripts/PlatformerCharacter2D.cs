@@ -31,7 +31,6 @@ namespace UnitySampleAssets._2D
 			GameManager.GameOver += GameOver;
 		}
 		private void GameStart(){
-			playerGraphics.transform.localPosition.Set(groundPosition.x,groundPosition.y+100f,groundPosition.z);
 			anim.enabled = true;;
 			this.enabled = true;
 			this.renderer.enabled = true;
@@ -43,6 +42,7 @@ namespace UnitySampleAssets._2D
 			this.enabled = false;
 			this.renderer.enabled = false;
 			this.rigidbody2D.isKinematic = true;
+			rigidbody2D.MovePosition(groundPosition);
 		}
 		private void Awake()
         {

@@ -20,6 +20,7 @@ public class GUIManager : MonoBehaviour {
 	void GameStart(){
 		gameTitle.enabled = false;
 		GameInstruction.enabled = false;
+		gameOverText.enabled = false;
 	}
 	void GameOver(){
 		gameOverText.enabled = true;

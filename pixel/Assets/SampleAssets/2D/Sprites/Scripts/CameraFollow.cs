@@ -51,7 +51,7 @@ namespace UnitySampleAssets._2D
 
         private void Update()
         {
-            TrackPlayer();
+            //TrackPlayer();
         }
 
 

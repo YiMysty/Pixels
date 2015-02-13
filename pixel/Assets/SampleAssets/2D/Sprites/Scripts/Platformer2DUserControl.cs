@@ -25,6 +25,7 @@ namespace UnitySampleAssets._2D
         private void Awake()
         {
             character = GetComponent<PlatformerCharacter2D>();
+
         }
 
         private void Update()

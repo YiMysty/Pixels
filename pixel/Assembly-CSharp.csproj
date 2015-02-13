@@ -46,13 +46,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\2D Sky FREE\Scripts\CloudFlow.cs" />
+     <Compile Include="Assets\2D Sky FREE\Scripts\SkyBG.cs" />
      <Compile Include="Assets\Manager\GUIManager.cs" />
      <Compile Include="Assets\Manager\GameManager.cs" />
-     <Compile Include="Assets\SampleAssets\2D\Scripts\Camera2DFollow.cs" />
-     <Compile Include="Assets\SampleAssets\2D\Scripts\CameraFollow.cs" />
-     <Compile Include="Assets\SampleAssets\2D\Scripts\Platformer2DUserControl.cs" />
-     <Compile Include="Assets\SampleAssets\2D\Scripts\PlatformerCharacter2D.cs" />
-     <Compile Include="Assets\SampleAssets\2D\Scripts\Restarter.cs" />
+     <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\Camera2DFollow.cs" />
+     <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\Platformer2DUserControl.cs" />
+     <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\PlatformerCharacter2D.cs" />
+     <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\Restarter.cs" />
      <Compile Include="Assets\SampleAssets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
      <Compile Include="Assets\SampleAssets\CrossPlatformInput\Scripts\ButtonHandler.cs" />
      <Compile Include="Assets\SampleAssets\CrossPlatformInput\Scripts\CameraSwitch.cs" />
@@ -67,6 +69,7 @@
      <Compile Include="Assets\SampleAssets\CrossPlatformInput\Scripts\TouchPad.cs" />
      <Compile Include="Assets\SampleAssets\CrossPlatformInput\Scripts\VirtualInput.cs" />
      <None Include="Assets\SampleAssets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\2D Sky FREE\!Readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>

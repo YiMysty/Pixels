@@ -27,6 +27,7 @@ namespace UnitySampleAssets._2D
 		private Vector3 groundPosition;
 
 		private Sprite newSprite;
+		int ani = 0;
 
 		private void Start(){
 			GameManager.GameStart += GameStart;
@@ -66,8 +67,8 @@ namespace UnitySampleAssets._2D
 			}
         }
 
-		private void update() {
-
+		private void Update() {
+			//Debug.Log (ani);
 		}
 
 
@@ -132,6 +133,18 @@ namespace UnitySampleAssets._2D
                 anim.SetBool("Ground", false);
                 rigidbody2D.AddForce(new Vector2(0f, jumpForce));
             }
+
+			// If the player should change the character
+			if (Input.GetKeyDown (KeyCode.X)) {
+				Debug.Log("KeyX!");
+				if (ani == 0){
+					ani = 1;
+				}
+				else{
+					ani = 0;
+				}
+				Debug.Log(ani);
+			}
         }
 
 

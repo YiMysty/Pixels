@@ -26,9 +26,14 @@ namespace UnitySampleAssets._2D
 		Transform playerGraphics;
 		private Vector3 groundPosition;
 
+		private Sprite newSprite;
+
 		private void Start(){
 			GameManager.GameStart += GameStart;
 			GameManager.GameOver += GameOver;
+			//playerGraphics = transform.FindChild ("S_M_Idle");
+			//newSprite = "kkk";
+			//playerGraphics.GetComponent(SpriteRenderer).sprite = newSprite;
 		}
 		private void GameStart(){
 			anim.enabled = true;;
@@ -50,11 +55,20 @@ namespace UnitySampleAssets._2D
             groundCheck = transform.Find("GroundCheck");
             ceilingCheck = transform.Find("CeilingCheck");
             anim = GetComponent<Animator>();
-			playerGraphics = transform.FindChild("Graphics");
+			if (transform.FindChild("Graphics")){
+				playerGraphics = transform.FindChild("Graphics");
+			}
+			else if(transform.FindChild("S_M_Idle")){
+				playerGraphics = transform.FindChild("S_M_Idle");
+			}
 			if(playerGraphics == null){
 				Debug.LogError ("Let's freak out! There is no 'Graphics' object as a child of the player");
 			}
         }
+
+		private void update() {
+
+		}
 
 
         private void FixedUpdate()

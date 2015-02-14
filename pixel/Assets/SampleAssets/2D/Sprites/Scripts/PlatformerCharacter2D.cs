@@ -27,7 +27,12 @@ namespace UnitySampleAssets._2D
 		private Vector3 groundPosition;
 		public Sprite []spriteArray = new Sprite[2];
 
+<<<<<<< HEAD
 		bool bigCharacter = true;
+=======
+		private Sprite newSprite;
+		int ani = 0;
+>>>>>>> pr/6
 
 		private void Start(){
 			GameManager.GameStart += GameStart;
@@ -61,6 +66,7 @@ namespace UnitySampleAssets._2D
         }
 
 		private void Update() {
+<<<<<<< HEAD
 			playerGraphics = transform.FindChild ("Graphics");
 			SpriteRenderer q =(SpriteRenderer) playerGraphics.GetComponent("SpriteRenderer");
 			if (Input.GetKeyDown (KeyCode.Space))
@@ -69,6 +75,9 @@ namespace UnitySampleAssets._2D
 				q.sprite = spriteArray [1];
 			else
 				q.sprite = spriteArray [0];
+=======
+			//Debug.Log (ani);
+>>>>>>> pr/6
 		}
 
         private void FixedUpdate()
@@ -132,6 +141,18 @@ namespace UnitySampleAssets._2D
                 anim.SetBool("Ground", false);
                 rigidbody2D.AddForce(new Vector2(0f, jumpForce));
             }
+
+			// If the player should change the character
+			if (Input.GetKeyDown (KeyCode.X)) {
+				Debug.Log("KeyX!");
+				if (ani == 0){
+					ani = 1;
+				}
+				else{
+					ani = 0;
+				}
+				Debug.Log(ani);
+			}
         }
 
 

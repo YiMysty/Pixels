@@ -9,7 +9,7 @@ namespace UnitySampleAssets._2D
     {
         private PlatformerCharacter2D character;
         private bool jump;
-
+		private bool bigCharater;
 		private void Start(){
 			GameManager.GameStart += GameStart;
 			GameManager.GameOver += GameOver;
@@ -41,6 +41,7 @@ namespace UnitySampleAssets._2D
             bool crouch = Input.GetKey(KeyCode.LeftControl);
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             // Pass all parameters to the character control script.
+
             character.Move(h, crouch, jump);
             jump = false;
         }

@@ -23,24 +23,22 @@ namespace UnitySampleAssets._2D
         private float ceilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
         private Animator anim; // Reference to the player's animator component.
 		private float GameOverY = -10;
-		Transform playerGraphics;
+		public Transform playerGraphics;
 		private Vector3 groundPosition;
+		public Sprite []spriteArray = new Sprite[2];
 
-		private Sprite newSprite;
+		bool bigCharacter = true;
 
 		private void Start(){
 			GameManager.GameStart += GameStart;
 			GameManager.GameOver += GameOver;
-			//playerGraphics = transform.FindChild ("S_M_Idle");
-			//newSprite = "kkk";
-			//playerGraphics.GetComponent(SpriteRenderer).sprite = newSprite;
 		}
 		private void GameStart(){
 			anim.enabled = true;;
 			this.enabled = true;
 			this.renderer.enabled = true;
 			this.rigidbody2D.isKinematic = false;
-			
+
 		}
 		private void GameOver(){
 			anim.enabled = false;
@@ -55,21 +53,23 @@ namespace UnitySampleAssets._2D
             groundCheck = transform.Find("GroundCheck");
             ceilingCheck = transform.Find("CeilingCheck");
             anim = GetComponent<Animator>();
-			if (transform.FindChild("Graphics")){
-				playerGraphics = transform.FindChild("Graphics");
-			}
-			else if(transform.FindChild("S_M_Idle")){
-				playerGraphics = transform.FindChild("S_M_Idle");
-			}
+			playerGraphics = transform.FindChild ("Graphics");	
+
 			if(playerGraphics == null){
 				Debug.LogError ("Let's freak out! There is no 'Graphics' object as a child of the player");
 			}
         }
 
-		private void update() {
-
+		private void Update() {
+			playerGraphics = transform.FindChild ("Graphics");
+			SpriteRenderer q =(SpriteRenderer) playerGraphics.GetComponent("SpriteRenderer");
+			if (Input.GetKeyDown (KeyCode.Space))
+				bigCharacter = !bigCharacter;
+			if (bigCharacter)
+				q.sprite = spriteArray [1];
+			else
+				q.sprite = spriteArray [0];
 		}
-
 
         private void FixedUpdate()
         {

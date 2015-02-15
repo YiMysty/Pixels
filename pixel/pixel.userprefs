@@ -2,16 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SampleAssets/2D/Sprites/Scripts/PlatformerCharacter2D.cs">
     <Files>
-<<<<<<< HEAD
-      <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/PlatformerCharacter2D.cs" Line="28" Column="43" />
-      <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/Platformer2DUserControl.cs" Line="44" Column="4" />
-      <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/CameraFollow.cs" Line="1" Column="1" />
-      <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/Restarter.cs" Line="1" Column="1" />
-      <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/Camera2DFollow.cs" Line="1" Column="1" />
-=======
-      <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/PlatformerCharacter2D.cs" Line="145" Column="6" />
-      <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/Platformer2DUserControl.cs" Line="35" Column="26" />
->>>>>>> pr/6
+      <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/PlatformerCharacter2D.cs" Line="89" Column="48" />
+      <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/Platformer2DUserControl.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

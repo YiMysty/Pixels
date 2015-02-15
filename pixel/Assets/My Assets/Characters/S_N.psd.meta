@@ -1,16 +1,15 @@
 fileFormatVersion: 2
-guid: af10c82a04c4c4aaba570332e89524ea
+guid: 5926512e9348c4e968249a235927932c
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Spongebob1
-    21300002: SpongebobJump
-    21300004: Spongebob2
-    21300006: SpongebobIdle
-    21300008: MachineGun
-    21300010: Pistol
-    21300012: Spongebob3
-    21300014: Spongebob4
-    21300016: Spongebob5
+    21300000: S_N_jump_walk5
+    21300002: S_N_walk6
+    21300004: S_N_walk7
+    21300006: S_N_idle_walk0
+    21300008: S_N_walk1
+    21300010: S_N_walk2
+    21300012: S_N_walk3
+    21300014: S_N_walk4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -52,93 +51,83 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Spongebob1
+    - name: S_N_jump_walk5
       rect:
         serializedVersion: 2
-        x: 17
-        y: 202
+        x: 46
+        y: 201
         width: 32
         height: 41
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpongebobJump
+    - name: S_N_walk6
       rect:
         serializedVersion: 2
-        x: 73
-        y: 203
+        x: 100
+        y: 201
         width: 32
         height: 40
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spongebob2
+    - name: S_N_walk7
       rect:
         serializedVersion: 2
-        x: 125
-        y: 203
+        x: 155
+        y: 202
         width: 30
         height: 40
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpongebobIdle
+    - name: S_N_idle_walk0
       rect:
         serializedVersion: 2
-        x: 178
+        x: 209
         y: 204
         width: 34
         height: 38
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: MachineGun
+    - name: S_N_walk1
       rect:
         serializedVersion: 2
-        x: 77
-        y: 155
-        width: 24
-        height: 9
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Pistol
-      rect:
-        serializedVersion: 2
-        x: 77
-        y: 149
-        width: 5
-        height: 4
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spongebob3
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 70
+        x: 40
+        y: 126
         width: 38
         height: 41
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spongebob4
+    - name: S_N_walk2
       rect:
         serializedVersion: 2
-        x: 70
-        y: 70
+        x: 100
+        y: 126
         width: 38
         height: 41
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spongebob5
+    - name: S_N_walk3
       rect:
         serializedVersion: 2
-        x: 140
-        y: 71
+        x: 159
+        y: 127
         width: 30
         height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: S_N_walk4
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 129
+        width: 30
+        height: 38
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

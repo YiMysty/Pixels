@@ -26,15 +26,8 @@ namespace UnitySampleAssets._2D
 		public Transform playerGraphics;
 		private Vector3 groundPosition;
 		public Sprite []spriteArray = new Sprite[2];
-<<<<<<< Updated upstream
-		private bool bigCharacter = false;
-		private int mode = 0; // Mode change variable
-
-=======
 		private bool modeChanged = false;
-		bool bigCharacter = false;
-		private Sprite newSprite;
->>>>>>> Stashed changes
+		int mode = TypeMode.NORMALSPONGE; //this mode is to indicate the character type
 
 		private void Start(){
 			GameManager.GameStart += GameStart;
@@ -67,32 +60,24 @@ namespace UnitySampleAssets._2D
 			}
         }
 
-		private void Update() {
+		private void update() {
 			playerGraphics = transform.FindChild ("Graphics");
 			SpriteRenderer q =(SpriteRenderer) playerGraphics.GetComponent("SpriteRenderer");
-<<<<<<< Updated upstream
-			if (Input.GetKeyDown (KeyCode.Q))
-=======
-			if (Input.GetKeyDown (KeyCode.Space)) {
->>>>>>> Stashed changes
-				bigCharacter = !bigCharacter;
+			if (Input.GetKeyDown (KeyCode.Q)) {
+				mode = 1-mode;
 				modeChanged = true;
 			}
-			if (bigCharacter && modeChanged) {
-				q.sprite = spriteArray [0];
-<<<<<<< Updated upstream
-=======
-			} else if(!bigCharacter&&modeChanged){
-				q.sprite =spriteArray[1];
-
-
+			if (mode==TypeMode.NORMALSPONGE && modeChanged) {
+				q.sprite = spriteArray [TypeMode.NORMALSPONGE];
+			} else if(mode==TypeMode.MUSCLESPONGE&&modeChanged){
+				q.sprite =spriteArray[TypeMode.MUSCLESPONGE];
 			}
 			modeChanged = false;
->>>>>>> Stashed changes
 		}
 
         private void FixedUpdate()
         {
+			update ();
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
             anim.SetBool("Ground", grounded);
@@ -105,21 +90,8 @@ namespace UnitySampleAssets._2D
         	if (y < GameOverY) {
 				GameManager.TriggerGameOver ();
 			}
-<<<<<<< Updated upstream
-			// If the player should change the character
 			anim.SetInteger("Mode", mode);
-			if (Input.GetKeyDown (KeyCode.X)) {
-				Debug.Log("KeyX!");
-				mode = 1;
-				Debug.Log(mode);
-			}
-
-=======
-			anim.SetBool("Mode", bigCharacter);
->>>>>>> Stashed changes
 		}
-
-
         public void Move(float move, bool crouch, bool jump)
         {
 

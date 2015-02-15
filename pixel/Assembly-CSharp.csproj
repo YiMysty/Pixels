@@ -55,6 +55,7 @@
      <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\Platformer2DUserControl.cs" />
      <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\PlatformerCharacter2D.cs" />
      <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\Restarter.cs" />
+     <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\TypeMode.cs" />
      <Compile Include="Assets\SampleAssets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
      <Compile Include="Assets\SampleAssets\CrossPlatformInput\Scripts\ButtonHandler.cs" />
      <Compile Include="Assets\SampleAssets\CrossPlatformInput\Scripts\CameraSwitch.cs" />

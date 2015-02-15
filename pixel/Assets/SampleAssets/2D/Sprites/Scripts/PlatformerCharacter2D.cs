@@ -26,9 +26,15 @@ namespace UnitySampleAssets._2D
 		public Transform playerGraphics;
 		private Vector3 groundPosition;
 		public Sprite []spriteArray = new Sprite[2];
+<<<<<<< Updated upstream
 		private bool bigCharacter = false;
 		private int mode = 0; // Mode change variable
 
+=======
+		private bool modeChanged = false;
+		bool bigCharacter = false;
+		private Sprite newSprite;
+>>>>>>> Stashed changes
 
 		private void Start(){
 			GameManager.GameStart += GameStart;
@@ -64,12 +70,25 @@ namespace UnitySampleAssets._2D
 		private void Update() {
 			playerGraphics = transform.FindChild ("Graphics");
 			SpriteRenderer q =(SpriteRenderer) playerGraphics.GetComponent("SpriteRenderer");
+<<<<<<< Updated upstream
 			if (Input.GetKeyDown (KeyCode.Q))
+=======
+			if (Input.GetKeyDown (KeyCode.Space)) {
+>>>>>>> Stashed changes
 				bigCharacter = !bigCharacter;
-			if (bigCharacter)
-				q.sprite = spriteArray [1];
-			else
+				modeChanged = true;
+			}
+			if (bigCharacter && modeChanged) {
 				q.sprite = spriteArray [0];
+<<<<<<< Updated upstream
+=======
+			} else if(!bigCharacter&&modeChanged){
+				q.sprite =spriteArray[1];
+
+
+			}
+			modeChanged = false;
+>>>>>>> Stashed changes
 		}
 
         private void FixedUpdate()
@@ -86,6 +105,7 @@ namespace UnitySampleAssets._2D
         	if (y < GameOverY) {
 				GameManager.TriggerGameOver ();
 			}
+<<<<<<< Updated upstream
 			// If the player should change the character
 			anim.SetInteger("Mode", mode);
 			if (Input.GetKeyDown (KeyCode.X)) {
@@ -94,6 +114,9 @@ namespace UnitySampleAssets._2D
 				Debug.Log(mode);
 			}
 
+=======
+			anim.SetBool("Mode", bigCharacter);
+>>>>>>> Stashed changes
 		}
 
 

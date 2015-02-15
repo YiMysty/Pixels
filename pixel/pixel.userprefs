@@ -1,9 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SampleAssets/2D/Sprites/Scripts/PlatformerCharacter2D.cs">
     <Files>
+<<<<<<< Updated upstream
       <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/PlatformerCharacter2D.cs" Line="89" Column="48" />
       <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/Platformer2DUserControl.cs" Line="1" Column="1" />
+=======
+      <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/Platformer2DUserControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/PlatformerCharacter2D.cs" Line="36" Column="4" />
+>>>>>>> Stashed changes
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

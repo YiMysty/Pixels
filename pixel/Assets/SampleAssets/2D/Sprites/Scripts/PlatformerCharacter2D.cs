@@ -26,13 +26,9 @@ namespace UnitySampleAssets._2D
 		public Transform playerGraphics;
 		private Vector3 groundPosition;
 		public Sprite []spriteArray = new Sprite[2];
+		private bool bigCharacter = false;
+		private int mode = 0; // Mode change variable
 
-<<<<<<< HEAD
-		bool bigCharacter = true;
-=======
-		private Sprite newSprite;
-		int ani = 0;
->>>>>>> pr/6
 
 		private void Start(){
 			GameManager.GameStart += GameStart;
@@ -66,18 +62,14 @@ namespace UnitySampleAssets._2D
         }
 
 		private void Update() {
-<<<<<<< HEAD
 			playerGraphics = transform.FindChild ("Graphics");
 			SpriteRenderer q =(SpriteRenderer) playerGraphics.GetComponent("SpriteRenderer");
-			if (Input.GetKeyDown (KeyCode.Space))
+			if (Input.GetKeyDown (KeyCode.Q))
 				bigCharacter = !bigCharacter;
 			if (bigCharacter)
 				q.sprite = spriteArray [1];
 			else
 				q.sprite = spriteArray [0];
-=======
-			//Debug.Log (ani);
->>>>>>> pr/6
 		}
 
         private void FixedUpdate()
@@ -94,6 +86,14 @@ namespace UnitySampleAssets._2D
         	if (y < GameOverY) {
 				GameManager.TriggerGameOver ();
 			}
+			// If the player should change the character
+			anim.SetInteger("Mode", mode);
+			if (Input.GetKeyDown (KeyCode.X)) {
+				Debug.Log("KeyX!");
+				mode = 1;
+				Debug.Log(mode);
+			}
+
 		}
 
 
@@ -142,17 +142,6 @@ namespace UnitySampleAssets._2D
                 rigidbody2D.AddForce(new Vector2(0f, jumpForce));
             }
 
-			// If the player should change the character
-			if (Input.GetKeyDown (KeyCode.X)) {
-				Debug.Log("KeyX!");
-				if (ani == 0){
-					ani = 1;
-				}
-				else{
-					ani = 0;
-				}
-				Debug.Log(ani);
-			}
         }
 
 

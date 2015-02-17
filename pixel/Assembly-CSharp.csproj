@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\2D Sky FREE\Scripts\CloudFlow.cs" />
      <Compile Include="Assets\2D Sky FREE\Scripts\SkyBG.cs" />
+     <Compile Include="Assets\Enemy\EnemyScript.cs" />
      <Compile Include="Assets\Manager\GUIManager.cs" />
      <Compile Include="Assets\Manager\GameManager.cs" />
      <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\Camera2DFollow.cs" />

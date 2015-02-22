@@ -25,13 +25,8 @@ namespace UnitySampleAssets._2D
 		private float GameOverY = -10;
 		public Transform playerGraphics;
 		private Vector3 groundPosition;
-<<<<<<< HEAD
+
 		public Sprite []spriteArray = new Sprite[3];
-		private bool modeChanged = false;
-=======
-		public Sprite []spriteArray = new Sprite[2];
-	//	private bool modeChanged = false;
->>>>>>> YiMysty/master
 		int mode = TypeMode.NORMALSPONGE; //this mode is to indicate the character type
 
 		private void Start(){
@@ -66,26 +61,6 @@ namespace UnitySampleAssets._2D
         }
 
 		private void update() {
-<<<<<<< HEAD
-			playerGraphics = transform.FindChild ("Graphics");
-			SpriteRenderer q =(SpriteRenderer) playerGraphics.GetComponent("SpriteRenderer");
-			if (Input.GetKeyDown (KeyCode.Q)) {
-				//mode = 1-mode;
-				mode = mode + 1;
-				if (mode>2)
-					mode = 0;
-				Debug.Log(mode);
-				modeChanged = true;
-			}
-			if (mode==TypeMode.NORMALSPONGE && modeChanged) {
-				q.sprite = spriteArray [TypeMode.NORMALSPONGE];
-			} else if(mode==TypeMode.MUSCLESPONGE&&modeChanged){
-				q.sprite =spriteArray[TypeMode.MUSCLESPONGE];
-			} else if(mode==TypeMode.GUNSPONGE&&modeChanged){
-				q.sprite =spriteArray[TypeMode.GUNSPONGE];
-			}
-			modeChanged = false;
-=======
 //			playerGraphics = transform.FindChild ("Graphics");
 //			SpriteRenderer q =(SpriteRenderer) playerGraphics.GetComponent("SpriteRenderer");
 //			if (Input.GetKeyDown (KeyCode.Q)) {
@@ -113,7 +88,6 @@ namespace UnitySampleAssets._2D
 				}
 				collisionInfo.gameObject.SetActive(false); //make the fruit disable
 			}	
->>>>>>> YiMysty/master
 		}
         private void FixedUpdate()
         {

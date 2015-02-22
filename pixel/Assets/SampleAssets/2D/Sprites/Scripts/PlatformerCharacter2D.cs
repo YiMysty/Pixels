@@ -25,7 +25,7 @@ namespace UnitySampleAssets._2D
 		private float GameOverY = -10;
 		public Transform playerGraphics;
 		private Vector3 groundPosition;
-		public Sprite []spriteArray = new Sprite[2];
+		public Sprite []spriteArray = new Sprite[3];
 		private bool modeChanged = false;
 		int mode = TypeMode.NORMALSPONGE; //this mode is to indicate the character type
 
@@ -64,13 +64,19 @@ namespace UnitySampleAssets._2D
 			playerGraphics = transform.FindChild ("Graphics");
 			SpriteRenderer q =(SpriteRenderer) playerGraphics.GetComponent("SpriteRenderer");
 			if (Input.GetKeyDown (KeyCode.Q)) {
-				mode = 1-mode;
+				//mode = 1-mode;
+				mode = mode + 1;
+				if (mode>2)
+					mode = 0;
+				Debug.Log(mode);
 				modeChanged = true;
 			}
 			if (mode==TypeMode.NORMALSPONGE && modeChanged) {
 				q.sprite = spriteArray [TypeMode.NORMALSPONGE];
 			} else if(mode==TypeMode.MUSCLESPONGE&&modeChanged){
 				q.sprite =spriteArray[TypeMode.MUSCLESPONGE];
+			} else if(mode==TypeMode.GUNSPONGE&&modeChanged){
+				q.sprite =spriteArray[TypeMode.GUNSPONGE];
 			}
 			modeChanged = false;
 		}

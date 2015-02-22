@@ -26,7 +26,7 @@ namespace UnitySampleAssets._2D
 		public Transform playerGraphics;
 		private Vector3 groundPosition;
 		public Sprite []spriteArray = new Sprite[2];
-		private bool modeChanged = false;
+	//	private bool modeChanged = false;
 		int mode = TypeMode.NORMALSPONGE; //this mode is to indicate the character type
 
 		private void Start(){
@@ -61,25 +61,40 @@ namespace UnitySampleAssets._2D
         }
 
 		private void update() {
-			playerGraphics = transform.FindChild ("Graphics");
-			SpriteRenderer q =(SpriteRenderer) playerGraphics.GetComponent("SpriteRenderer");
-			if (Input.GetKeyDown (KeyCode.Q)) {
-				mode = 1-mode;
-				modeChanged = true;
-			}
-			if (mode==TypeMode.NORMALSPONGE && modeChanged) {
-				q.sprite = spriteArray [TypeMode.NORMALSPONGE];
-			} else if(mode==TypeMode.MUSCLESPONGE&&modeChanged){
-				q.sprite =spriteArray[TypeMode.MUSCLESPONGE];
-			}
-			modeChanged = false;
+//			playerGraphics = transform.FindChild ("Graphics");
+//			SpriteRenderer q =(SpriteRenderer) playerGraphics.GetComponent("SpriteRenderer");
+//			if (Input.GetKeyDown (KeyCode.Q)) {
+//				mode = 1-mode;
+//				modeChanged = true;
+//			}
+//			if (mode==TypeMode.NORMALSPONGE && modeChanged) {
+//				q.sprite = spriteArray [TypeMode.NORMALSPONGE];
+//			} else if(mode==TypeMode.MUSCLESPONGE&&modeChanged){
+//				q.sprite =spriteArray[TypeMode.MUSCLESPONGE];
+//			}
+//			modeChanged = false;
 		}
-
+		void OnCollisionEnter2D(Collision2D collisionInfo){
+			string collisionObject = collisionInfo.gameObject.ToString ().ToLower(); 
+			if (collisionObject.IndexOf("fruit")>=0) { //this is fruit that can change player
+				playerGraphics = transform.FindChild ("Graphics");
+				SpriteRenderer q =(SpriteRenderer) playerGraphics.GetComponent("SpriteRenderer");
+				if(collisionObject.IndexOf("big")>=0){
+					q.sprite =spriteArray[TypeMode.MUSCLESPONGE];
+					mode = TypeMode.MUSCLESPONGE;
+				}else if(collisionObject.IndexOf("small")>=0){
+					q.sprite = spriteArray[TypeMode.NORMALSPONGE];
+					mode = TypeMode.NORMALSPONGE;
+				}
+				collisionInfo.gameObject.SetActive(false); //make the fruit disable
+			}	
+		}
         private void FixedUpdate()
         {
 			update ();
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
+
             anim.SetBool("Ground", grounded);
 			if (grounded) {
 				groundPosition = transform.localPosition;
@@ -150,5 +165,15 @@ namespace UnitySampleAssets._2D
             theScale.x *= -1;
             playerGraphics.localScale = theScale;
         }
+		void OnCollisionEnter(Collision collision) 
+		{
+			//进入碰撞器执行的代码
+			Debug.Log ("WTF");
+		}
+		void OnTriggerEnter(Collider collider)
+		{
+			//进入触发器执行的代码
+			Debug.Log ("qwe");
+		}
     }
 }

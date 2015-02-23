@@ -49,6 +49,9 @@ namespace UnitySampleAssets._2D
 		}
 		private void Awake()
         {
+//DontDestry
+			DontDestroyOnLoad (this.transform.gameObject);
+
             // Setting up references.
             groundCheck = transform.Find("GroundCheck");
             ceilingCheck = transform.Find("CeilingCheck");

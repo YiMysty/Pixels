@@ -85,6 +85,9 @@ namespace UnitySampleAssets._2D
 				}else if(collisionObject.IndexOf("small")>=0){
 					q.sprite = spriteArray[TypeMode.NORMALSPONGE];
 					mode = TypeMode.NORMALSPONGE;
+				}else if(collisionObject.IndexOf("gun")>=0){
+					q.sprite = spriteArray[TypeMode.GUNSPONGE];
+					mode = TypeMode.GUNSPONGE;
 				}
 				collisionInfo.gameObject.SetActive(false); //make the fruit disable
 			}	

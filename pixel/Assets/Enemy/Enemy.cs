@@ -34,7 +34,10 @@ public class Enemy : MonoBehaviour {
 		if (this.transform.position.y > other.transform.position.y) {
 			startPoint = other.transform.position.x;
 			patrolDistance = 0.5f * other.gameObject.GetComponent<BoxCollider2D> ().size.x;
-		} else if (other.gameObject.tag == "Player" && this.transform.position.y < other.transform.position.y){
+		} else if (other.gameObject.tag == "Player" &&
+		           this.transform.position.x + headSize > other.transform.position.x &&
+		           this.transform.position.x - headSize < other.transform.position.x &&
+		           this.transform.position.y < (other.transform.position.y - 0.61)){
 			gameObject.SetActive(false);
 			//isStomp = true;
 		}

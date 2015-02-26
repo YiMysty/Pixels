@@ -171,15 +171,5 @@ namespace UnitySampleAssets._2D
             theScale.x *= -1;
             playerGraphics.localScale = theScale;
         }
-		void OnCollisionEnter(Collision collision) 
-		{
-			//进入碰撞器执行的代码
-			Debug.Log ("WTF");
-		}
-		void OnTriggerEnter(Collider collider)
-		{
-			//进入触发器执行的代码
-			Debug.Log ("qwe");
-		}
     }
 }

@@ -65,5 +65,6 @@ namespace UnitySampleAssets._2D
             lastTargetPosition = target.position;
 			this.transform.LookAt (lastTargetPosition);
         }
+
     }
 }

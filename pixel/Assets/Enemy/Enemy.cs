@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour {
 	//private NavMeshAgent nav;                               // Reference to the nav mesh agent.
 	private bool isStomp;
 	private bool fall;
-	private Transform player;                               // Reference to the player's transform.
 	private float headSize;
 	//private PlayerHealth playerHealth;                      // Reference to the PlayerHealth script.
 	private float patrolTimer;                              // A timer for the patrolWaitTime.
@@ -22,7 +21,6 @@ public class Enemy : MonoBehaviour {
 	{
 		isStomp = false;
 		fall = true;
-		player = GameObject.Find("Player").transform;
 		headSize = GetComponent<BoxCollider2D>().size.x;
 	}
 

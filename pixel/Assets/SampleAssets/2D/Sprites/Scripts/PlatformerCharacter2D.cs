@@ -27,7 +27,7 @@ namespace UnitySampleAssets._2D
 		private Vector3 groundPosition;
 		public Sprite []spriteArray = new Sprite[2];
 	//	private bool modeChanged = false;
-		int mode = TypeMode.NORMALSPONGE; //this mode is to indicate the character type
+		public static int mode = TypeMode.NORMALSPONGE; //this mode is to indicate the character type
 
 		private void Start(){
 			GameManager.GameStart += GameStart;

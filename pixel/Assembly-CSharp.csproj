@@ -53,6 +53,7 @@
      <Compile Include="Assets\Fruit.cs" />
      <Compile Include="Assets\Manager\GUIManager.cs" />
      <Compile Include="Assets\Manager\GameManager.cs" />
+     <Compile Include="Assets\MoveTrail.cs" />
      <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\Camera2DFollow.cs" />
      <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\Platformer2DUserControl.cs" />
@@ -72,6 +73,7 @@
      <Compile Include="Assets\SampleAssets\CrossPlatformInput\Scripts\TiltInput.cs" />
      <Compile Include="Assets\SampleAssets\CrossPlatformInput\Scripts\TouchPad.cs" />
      <Compile Include="Assets\SampleAssets\CrossPlatformInput\Scripts\VirtualInput.cs" />
+     <Compile Include="Assets\Weapon.cs" />
      <None Include="Assets\SampleAssets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\2D Sky FREE\!Readme.txt" />
  <Reference Include="UnityEngine.UI">

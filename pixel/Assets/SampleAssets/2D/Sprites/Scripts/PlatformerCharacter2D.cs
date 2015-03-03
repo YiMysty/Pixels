@@ -27,6 +27,7 @@ namespace UnitySampleAssets._2D
 		public Transform playerGraphics;
 		private Vector3 groundPosition;
 		public Sprite []spriteArray = new Sprite[2];
+<<<<<<< HEAD
 		int mode = TypeMode.NORMALSPONGE; //this mode is to indicate the character type
 		private bool DoubleJump = true;
 		private int HealthPoint = 20;
@@ -34,6 +35,11 @@ namespace UnitySampleAssets._2D
 		private long startime = 0;
 		private long oldTime  = 0;
 		private GameObject blood;
+=======
+	//	private bool modeChanged = false;
+		public static int mode = TypeMode.NORMALSPONGE; //this mode is to indicate the character type
+
+>>>>>>> pr/11
 		private void Start(){
 			GameManager.GameStart += GameStart;
 			GameManager.GameOver += GameOver;

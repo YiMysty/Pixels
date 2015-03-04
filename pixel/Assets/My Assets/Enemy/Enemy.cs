@@ -4,7 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 
 	public float patrolSpeed = 2f;                          // The nav mesh agent's speed when patrolling.
-	
+	public int life = 3;
 	//private EnemySight enemySight;                          // Reference to the EnemySight script.
 	//private NavMeshAgent nav;                               // Reference to the nav mesh agent.
 	private bool isStomp;
@@ -29,15 +29,21 @@ public class Enemy : MonoBehaviour {
 		// if collision on top -> dead
 		// if collision on left or right -> cause player dead
 		// if collision on bottom -> update standing platform
-		if (this.transform.position.y > other.transform.position.y) {
-			startPoint = other.transform.position.x;
-			patrolDistance = 0.5f * other.gameObject.GetComponent<BoxCollider2D> ().size.x;
-		} else if (other.gameObject.tag == "Player" &&
-		           this.transform.position.x + headSize > other.transform.position.x &&
-		           this.transform.position.x - headSize < other.transform.position.x &&
-		           this.transform.position.y < (other.transform.position.y - 0.61)){
-			gameObject.SetActive(false);
-			//isStomp = true;
+		if(gameObject!=null&&other!=null){
+			if (this.transform.position.y > other.transform.position.y) {
+						startPoint = other.transform.position.x;
+						patrolDistance = 0.5f * other.gameObject.GetComponent<BoxCollider2D> ().size.x;
+			} else if (other.gameObject.tag == "Player" &&
+						this.transform.position.x + headSize > other.transform.position.x &&
+						this.transform.position.x - headSize < other.transform.position.x &&
+						this.transform.position.y < (other.transform.position.y - 0.61)) {
+						gameObject.SetActive (false);
+						//isStomp = true;
+			} else  if(other.gameObject.name.IndexOf("BulletTrail")>=0){
+				this.life-=1;
+				if(this.life==0)
+					gameObject.SetActive(false);
+			}
 		}
 	}
 

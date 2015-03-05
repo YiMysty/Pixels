@@ -10,6 +10,9 @@ namespace UnitySampleAssets._2D
             //if (other.tag == "Player")
                 //Application.LoadLevel(Application.loadedLevelName);
 				Application.LoadLevel(1);
+			GameObject o= GameObject.FindWithTag("Player");
+			o.rigidbody2D.isKinematic = true;
+			o.rigidbody2D.MovePosition (new Vector2(0f,10f));
 		}
     }
 }

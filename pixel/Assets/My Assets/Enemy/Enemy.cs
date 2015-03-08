@@ -30,10 +30,7 @@ public class Enemy : MonoBehaviour {
 		// if collision on left or right -> cause player dead
 		// if collision on bottom -> update standing platform
 		if(gameObject!=null&&other!=null){
-			if (this.transform.position.y > other.transform.position.y) {
-						startPoint = other.transform.position.x;
-						patrolDistance = 0.5f * other.gameObject.GetComponent<BoxCollider2D> ().size.x;
-			} else if (other.gameObject.tag == "Player" &&
+			if (other.gameObject.tag == "Player" &&
 						this.transform.position.x + headSize > other.transform.position.x &&
 						this.transform.position.x - headSize < other.transform.position.x &&
 						this.transform.position.y < (other.transform.position.y - 0.61)) {
@@ -43,6 +40,9 @@ public class Enemy : MonoBehaviour {
 				this.life-=1;
 				if(this.life==0)
 					gameObject.SetActive(false);
+			} else if (this.transform.position.y > other.transform.position.y) {
+				startPoint = other.transform.position.x;
+				patrolDistance = 0.5f * other.gameObject.GetComponent<BoxCollider2D> ().size.x;
 			}
 		}
 	}

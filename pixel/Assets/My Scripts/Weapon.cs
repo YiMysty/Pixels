@@ -30,7 +30,7 @@ public class Weapon : MonoBehaviour {
 			}
 		}
 		else {
-			if (Input.GetKeyDown (KeyCode.Z) && Time.time > timeToFire) {
+			if (Input.GetButtonDown ("Fire1") && Time.time > timeToFire) {
 				timeToFire = Time.time + 1/fireRate;
 				Shoot();
 			}

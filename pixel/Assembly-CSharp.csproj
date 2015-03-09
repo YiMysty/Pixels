@@ -50,11 +50,14 @@
      <Compile Include="Assets\2D Sky FREE\Scripts\SkyBG.cs" />
      <Compile Include="Assets\Manager\GUIManager.cs" />
      <Compile Include="Assets\Manager\GameManager.cs" />
+     <Compile Include="Assets\Moving.cs" />
      <Compile Include="Assets\My Assets\Enemy\Enemy.cs" />
+     <Compile Include="Assets\My Assets\Enemy\EnemyManager.cs" />
      <Compile Include="Assets\My Assets\Enemy\EnemyScript.cs" />
      <Compile Include="Assets\My Scripts\Fruit.cs" />
      <Compile Include="Assets\My Scripts\MoveTrail.cs" />
      <Compile Include="Assets\My Scripts\Weapon.cs" />
+     <Compile Include="Assets\PlatFormManager.cs" />
      <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\Camera2DFollow.cs" />
      <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\SampleAssets\2D\Sprites\Scripts\Platformer2DUserControl.cs" />

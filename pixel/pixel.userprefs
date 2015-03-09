@@ -1,8 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/My Assets/Enemy/Enemy.cs">
     <Files>
-      <File FileName="Assets/My Assets/Enemy/Enemy.cs" Line="45" Column="1" />
+      <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/PlatformerCharacter2D.cs" Line="210" Column="1" />
+      <File FileName="Assets/My Assets/Enemy/Enemy.cs" Line="62" Column="48" />
+      <File FileName="Assets/My Scripts/Weapon.cs" Line="61" Column="20" />
+      <File FileName="Assets/My Scripts/MoveTrail.cs" Line="7" Column="3" />
+      <File FileName="Assets/PlatFormManager.cs" Line="80" Column="37" />
+      <File FileName="Assets/SampleAssets/2D/Sprites/Scripts/Camera2DFollow.cs" Line="66" Column="4" />
+      <File FileName="Assets/Moving.cs" Line="13" Column="60" />
+      <File FileName="Assets/My Assets/Enemy/EnemyManager.cs" Line="15" Column="133" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

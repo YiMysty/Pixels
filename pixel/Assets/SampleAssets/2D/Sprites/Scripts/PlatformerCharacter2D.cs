@@ -7,7 +7,7 @@ namespace UnitySampleAssets._2D
     public class PlatformerCharacter2D : MonoBehaviour
     {
         private bool facingRight = true; // For determining which way the player is currently facing.
-
+		public static bool faceRight;
         [SerializeField] private float maxSpeed = 10f; // The fastest the player can travel in the x axis.
         [SerializeField] private float jumpForce = 400f; // Amount of force added when the player jumps.	
 
@@ -56,7 +56,7 @@ namespace UnitySampleAssets._2D
 			this.enabled = false;
 			this.renderer.enabled = false;
 			this.rigidbody2D.isKinematic = true;
-			rigidbody2D.MovePosition(new Vector2(0f,groundPosition.y+10f));
+			rigidbody2D.MovePosition(groundPosition);
 			disableBlood ();
 		}
 		private void Awake()
@@ -92,16 +92,15 @@ namespace UnitySampleAssets._2D
 				}
 				collisionInfo.gameObject.SetActive(false); //make the fruit disable
 			}else if(collisionObject.StartsWith("enemy")){
-				float collisionUpperBound = collisionInfo.transform.position.x-collisionInfo.transform.localScale.x/2;
-				float collisionDownBound  = collisionInfo.transform.position.x+collisionInfo.transform.localScale.x/2;
-				float collisionSkyBound   = collisionInfo.transform.position.y-0.61f;
-				if(!(this.transform.position.x>collisionUpperBound&&this.transform.position.x<collisionDownBound&&this.transform.position.y>collisionSkyBound)){
-					HealthPoint-=TypeMode.OCTOPUS;
-					this.rigidbody2D.isKinematic = true;
-					this.collider2D.enabled = false;
+				float SpongeY =this.collider2D.gameObject.transform.localPosition.y;
+				float enemeyY =collisionInfo.transform.localPosition.y;
+				Debug.Log(SpongeY+","+enemeyY);
+				if(enemeyY-SpongeY>=3f&&!whoisyourdaddy){
+					HealthPoint -= TypeMode.OCTOPUS;
 					if(HealthPoint<=0){
 						GameManager.TriggerGameOver();	
 					}
+
 					whoisyourdaddy = true; //I can be beaten
 					startime  =long.Parse(GetTimeStamp(false));
 					oldTime   = startime;
@@ -123,9 +122,6 @@ namespace UnitySampleAssets._2D
 				groundPosition = transform.localPosition;
 				DoubleJump = true;
 			} else if (!grounded) {
-				this.collider2D.enabled = true;
-				this.rigidbody2D.isKinematic = false;
-				whoisyourdaddy = false;
 				playerGraphics = transform.FindChild ("Graphics");
 				SpriteRenderer q =(SpriteRenderer) playerGraphics.GetComponent("SpriteRenderer");
 				q.enabled = true;
@@ -146,8 +142,6 @@ namespace UnitySampleAssets._2D
 					playerGraphics = transform.FindChild ("Graphics");
 					SpriteRenderer q =(SpriteRenderer) playerGraphics.GetComponent("SpriteRenderer");
 					q.enabled =true;
-					this.collider2D.enabled = true;
-					this.rigidbody2D.isKinematic = false;
 				}
 			}
 			setBlood(HealthPoint);
@@ -189,6 +183,7 @@ namespace UnitySampleAssets._2D
                 else if (move < 0 && facingRight)
                     // ... flip the player.
                     Flip();
+				faceRight = facingRight;
             }
             // If the player should jump...
             if (grounded && jump && anim.GetBool ("Ground")) {

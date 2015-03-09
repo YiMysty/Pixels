@@ -1,87 +1,93 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Enemy : MonoBehaviour {
-
-	public float patrolSpeed = 2f;                          // The nav mesh agent's speed when patrolling.
-	public int life = 3;
-	//private EnemySight enemySight;                          // Reference to the EnemySight script.
-	//private NavMeshAgent nav;                               // Reference to the nav mesh agent.
-	private bool isStomp;
-	private bool fall;
-	private float headSize;
-	//private PlayerHealth playerHealth;                      // Reference to the PlayerHealth script.
-	private float patrolTimer;                              // A timer for the patrolWaitTime.
-	private float startPoint;
-	private float patrolDistance;
-	public float playerpos;
-
-
+	
+	GameObject anim;   //this is the explosion effect
+	public int life;
+	public float speed;
+	public float x1;
+	public float x2;
+	private bool direction = false;
+	private Transform playerGraphics;
+	private int collideLife = 100;
+	private long oldTime  = 0;
 	void Start() 
 	{
-		isStomp = false;
-		fall = true;
-		headSize = GetComponent<BoxCollider2D>().size.x;
+		GameManager.GameStart += GameStart;
+		GameManager.GameOver  += GameOver;
+		anim = this.transform.FindChild ("Explosion").gameObject;
+		anim.gameObject.SetActive (false);
+		playerGraphics = transform.FindChild ("Graphics");
 	}
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		// if collision on top -> dead
-		// if collision on left or right -> cause player dead
-		// if collision on bottom -> update standing platform
 		if(gameObject!=null&&other!=null){
-			if (other.gameObject.tag == "Player" &&
-						this.transform.position.x + headSize > other.transform.position.x &&
-						this.transform.position.x - headSize < other.transform.position.x &&
-						this.transform.position.y < (other.transform.position.y - 0.61)) {
-						gameObject.SetActive (false);
-						//isStomp = true;
+			if (other.gameObject.tag == "Player") {
+				float SpongeY =other.transform.localPosition.y; 
+				float enemeyY =this.transform.localPosition.y;
+				if(enemeyY-SpongeY<3f){
+					Destroy(gameObject);
+				}
 			} else  if(other.gameObject.name.IndexOf("BulletTrail")>=0){
 				this.life-=1;
 				if(this.life==0)
 					gameObject.SetActive(false);
-			} else if (this.transform.position.y > other.transform.position.y) {
-				startPoint = other.transform.position.x;
-				patrolDistance = 0.5f * other.gameObject.GetComponent<BoxCollider2D> ().size.x;
+				else{
+					anim.gameObject.SetActive (true);
+					oldTime =long.Parse(GetTimeStamp(false));
+				}
+			}else{
+				collideLife --;
 			}
+			direction = !direction;
+			flip();
+		}
+		direction = !direction;
+	}
+	void OnCollisionExit2D(Collision2D other) {
+		if (other.gameObject.name.IndexOf ("BulletTrail") >= 0) {
+			anim.gameObject.SetActive(false);
 		}
 	}
-
-	void FixedUpdate ()
-	{
-		if (isStomp) {
-			isStomp = false;
-			fall = true;
-			Vector3 scale = this.transform.localScale;
-			scale.y /= 2;
-			this.transform.localScale = scale;
-			GetComponent<BoxCollider2D>().enabled = false;
+	void FixedUpdate (){
+		if (!direction) {
+			this.transform.Translate (new Vector2 (Time.deltaTime, 0f));
+		}else{
+			this.transform.Translate(new Vector2(0-Time.deltaTime,0f));
 		}
-		else
-			Patrolling();
-
-		if (fall) {
-			this.transform.Translate(0f, -0.5f * Time.deltaTime, 0f);
+		if (anim.activeSelf) {
+			if(long.Parse(GetTimeStamp(false))-oldTime>500){
+				anim.SetActive(false);
+			}			
 		}
-
-		if (this.transform.position.y < -30)
-			gameObject.SetActive (false);
 	}
 	
-	void Patrolling ()
-	{
-		Transform boo = GetComponent<Transform>();
-		
-		if (boo.localPosition.x > startPoint - patrolDistance &&
-		    boo.localPosition.x < startPoint + patrolDistance)
-		{
-			// move toward patrol position
-			boo.Translate(patrolSpeed * Time.deltaTime, 0f, 0f);
-		}
-		else {
-			patrolSpeed = -patrolSpeed;
-			// NEED TO UPDATE MIRROR SPRITE
-			boo.Translate(patrolSpeed * Time.deltaTime, 0f, 0f);
-		}
+	void Patrolling (){
+
+	}
+	private void GameStart(){
+
+	}
+	private void GameOver(){
+
+	}
+	private void flip(){
+
+		Vector3 theScale = playerGraphics.localScale;
+		theScale.x *= -1;
+		playerGraphics.localScale = theScale;
+	}
+	public static string GetTimeStamp(bool bflag = true)  
+	{  
+		TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);  
+		string ret = string.Empty;  
+		if (bflag)  
+			ret = Convert.ToInt64(ts.TotalSeconds).ToString();  
+		else  
+			ret = Convert.ToInt64(ts.TotalMilliseconds).ToString();  
+		return ret;  
 	}
 }

@@ -12,6 +12,8 @@ public class Weapon : MonoBehaviour {
 
 	float timeToFire = 0;
 	Transform firePoint;
+	
+	bool faceRight  =PlatformerCharacter2D.faceRight;
 
 	// Use this for initialization
 	void Awake () {
@@ -25,12 +27,12 @@ public class Weapon : MonoBehaviour {
 	void Update () {
 
 		if (fireRate == 0) {
-			if (Input.GetButtonDown ("Fire1")) {
+			if (Input.GetKeyDown (KeyCode.Z)) {
 				Shoot();
 			}
 		}
 		else {
-			if (Input.GetButtonDown ("Fire1") && Time.time > timeToFire) {
+			if (Input.GetKeyDown(KeyCode.Z) && Time.time > timeToFire) {
 				timeToFire = Time.time + 1/fireRate;
 				Shoot();
 			}
@@ -42,7 +44,7 @@ public class Weapon : MonoBehaviour {
 		// Debug.Log ("Fire!");
 		Vector2 mousePosition = new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
 		Vector2 firePointPosition = new Vector2 (firePoint.position.x, firePoint.position.y);
-		RaycastHit2D hit = Physics2D.Raycast (firePointPosition, mousePosition-firePointPosition, 100, whatToHit);
+			RaycastHit2D hit = Physics2D.Raycast (firePointPosition, mousePosition-firePointPosition, 100, whatToHit);
 		if(PlatformerCharacter2D.mode==TypeMode.GUNSPONGE){
 			Effect ();
 		}
@@ -53,8 +55,20 @@ public class Weapon : MonoBehaviour {
 //			Debug.Log ("We hit " + hit.collider.name + "and did " + Damage + " damage.");
 //		}
 	}
-
+	
+	void flipRPG(){
+		Vector3 theScale = BulletTrailPrefab.localScale;
+		theScale.x *= -1;
+		BulletTrailPrefab.localScale = theScale;
+	}
+	
 	void Effect(){
+		if (faceRight && BulletTrailPrefab.localScale.x<0){
+			flipRPG();
+		}
+		if (!faceRight && BulletTrailPrefab.localScale.x>0){
+			flipRPG();
+		}
 		Instantiate (BulletTrailPrefab, firePoint.position, firePoint.rotation);
 	}
 }
